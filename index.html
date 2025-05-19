@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ka ED's Store BBQ</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <script defer src="/js/script.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-dL5CR5hlX9q4aPC3c1EVZv5GnQ7Wb4s6bPjxhHBV6oCX4xJY5I+W8+Vx3wo4He1Wv0WvmQkC7kmvVk6GvYQXKg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+</head>
+<body>
+  <!-- Top Navigation -->
+  <header class="top-nav" role="banner">
+    <div class="logo-hamburger">
+      <button
+        class="hamburger"
+        id="hamburger"
+        aria-label="Toggle sidebar menu"
+        aria-expanded="false"
+        aria-controls="sidebar"
+      >
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </button>
+
+      <a href="#" class="logo" aria-label="Ka ED's Store BBQ Home">
+        <img
+          src="/assets/sksksk.png"
+          alt="Ka ED's Store BBQ Logo"
+        />
+        <span>Ka ED's Store BBQ</span>
+      </a>
+    </div>
+
+    <nav
+      class="nav-links"
+      role="navigation"
+      aria-label="Primary navigation"
+    >
+      <ul>
+        <li><a href="#" id="home-link">Home</a></li>
+        <li><a href="#" id="about-link">About Us</a></li>
+
+        <li class="dropdown" id="menu-dropdown">
+          <button
+            class="dropdown-toggle"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="menu-dropdown-list"
+            id="menu-toggle"
+          >
+            Menu <i class="fas fa-chevron-down" aria-hidden="true"></i>
+          </button>
+          <ul
+            class="dropdown-menu"
+            id="menu-dropdown-list"
+            role="menu"
+            aria-label="Menu categories"
+          >
+            <li><a href="#" role="menuitem">Featured Items</a></li>
+            <li><a href="#" role="menuitem">Best Sellers</a></li>
+            <li><a href="#" role="menuitem">Available Items</a></li>
+            <li><a href="#" role="menuitem">Out of Stock</a></li>
+            <li><a href="#" role="menuitem">Coming Soon</a></li>
+          </ul>
+        </li>
+
+        <li><a href="#" id="mission-link">Mission</a></li>
+        <li><a href="#" id="vision-link">Vision</a></li>
+        <li><a href="#" id="faq-link">FAQs</a></li>
+      </ul>
+    </nav>
+
+    <div class="auth-buttons">
+      <button id="login-btn" aria-label="Login">Login</button>
+      <button id="signup-btn" aria-label="Sign up">Sign Up</button>
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <aside
+    class="sidebar"
+    id="sidebar"
+    aria-hidden="true"
+    role="complementary"
+    aria-label="Sidebar navigation"
+  >
+    <nav class="sidebar-nav">
+      <ul>
+        <li><a href="#" id="settings-btn">Settings</a></li>
+        <li><a href="#" id="feedback-btn">Feedback</a></li>
+        <li><a href="#" id="about-sidebar-btn">About</a></li>
+        <li><a href="#" id="help-btn">Help</a></li>
+        <li>
+          <button id="admin-login-btn" class="btn-sidebar" aria-label="Admin Login">
+            Admin Login
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content" id="main-content" tabindex="-1">
+    <h1>Welcome to Ka ED's Store BBQ</h1>
+    <p>Your one-stop destination for the best grilled meats and BBQ delights.</p>
+  </main>
+</body>
+</html>
