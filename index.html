@@ -1,116 +1,636 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ka ED's Store BBQ</title>
-  <link rel="stylesheet" href="/css/styles.css" />
-  <script defer src="/js/script.js"></script>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    integrity="sha512-dL5CR5hlX9q4aPC3c1EVZv5GnQ7Wb4s6bPjxhHBV6oCX4xJY5I+W8+Vx3wo4He1Wv0WvmQkC7kmvVk6GvYQXKg=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ka ED's Store BBQ</title>
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
-  <!-- Top Navigation -->
-  <header class="top-nav" role="banner">
-    <div class="logo-hamburger">
-      <button
-        class="hamburger"
-        id="hamburger"
-        aria-label="Toggle sidebar menu"
-        aria-expanded="false"
-        aria-controls="sidebar"
-      >
-        <span class="line"></span>
-        <span class="line"></span>
-        <span class="line"></span>
-      </button>
-
-      <a href="#" class="logo" aria-label="Ka ED's Store BBQ Home">
-        <img
-          src="/assets/sksksk.png"
-          alt="Ka ED's Store BBQ Logo"
-        />
-        <span>Ka ED's Store BBQ</span>
-      </a>
-    </div>
-
-    <nav
-      class="nav-links"
-      role="navigation"
-      aria-label="Primary navigation"
-    >
-      <ul>
-        <li><a href="#" id="home-link">Home</a></li>
-        <li><a href="#" id="about-link">About Us</a></li>
-
-        <li class="dropdown" id="menu-dropdown">
-          <button
-            class="dropdown-toggle"
-            aria-haspopup="true"
-            aria-expanded="false"
-            aria-controls="menu-dropdown-list"
-            id="menu-toggle"
-          >
-            Menu <i class="fas fa-chevron-down" aria-hidden="true"></i>
-          </button>
-          <ul
-            class="dropdown-menu"
-            id="menu-dropdown-list"
-            role="menu"
-            aria-label="Menu categories"
-          >
-            <li><a href="#" role="menuitem">Featured Items</a></li>
-            <li><a href="#" role="menuitem">Best Sellers</a></li>
-            <li><a href="#" role="menuitem">Available Items</a></li>
-            <li><a href="#" role="menuitem">Out of Stock</a></li>
-            <li><a href="#" role="menuitem">Coming Soon</a></li>
-          </ul>
+<header>
+    <div class="container">
+    <h1 class="logo">Ka ED's Store</h1>
+    <nav>
+        <ul class="main-nav">
+        <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="#about"><i class="fas fa-info-circle"></i> About Us</a></li>
+        <li class="dropdown">
+            <a href="#menu"><i class="fas fa-utensils"></i> Menu</a>
+            <ul class="sub-menu">
+            <li><a href="#featured"><i class="fas fa-star"></i> Featured Items</a></li>
+            <li><a href="#bestsellers"><i class="fas fa-trophy"></i> Best Sellers</a></li>
+            <li><a href="#available"><i class="fas fa-check-circle"></i> Available Items</a></li>
+            <li><a href="#reservation"><i class="fas fa-calendar-check"></i> Reservation</a></li>
+            <li><a href="#order"><i class="fas fa-shopping-cart"></i> Order Online</a></li>
+            </ul>
         </li>
-
-        <li><a href="#" id="mission-link">Mission</a></li>
-        <li><a href="#" id="vision-link">Vision</a></li>
-        <li><a href="#" id="faq-link">FAQs</a></li>
-      </ul>
-    </nav>
-
-    <div class="auth-buttons">
-      <button id="login-btn" aria-label="Login">Login</button>
-      <button id="signup-btn" aria-label="Sign up">Sign Up</button>
-    </div>
-  </header>
-
-  <!-- Sidebar -->
-  <aside
-    class="sidebar"
-    id="sidebar"
-    aria-hidden="true"
-    role="complementary"
-    aria-label="Sidebar navigation"
-  >
-    <nav class="sidebar-nav">
-      <ul>
-        <li><a href="#" id="settings-btn">Settings</a></li>
-        <li><a href="#" id="feedback-btn">Feedback</a></li>
-        <li><a href="#" id="about-sidebar-btn">About</a></li>
-        <li><a href="#" id="help-btn">Help</a></li>
-        <li>
-          <button id="admin-login-btn" class="btn-sidebar" aria-label="Admin Login">
-            Admin Login
-          </button>
+        <li><a href="#mission"><i class="fas fa-bullseye"></i> Mission</a></li>
+        <li><a href="#vision"><i class="fas fa-eye"></i> Vision</a></li>
+        <li><a href="#faqs"><i class="fas fa-question-circle"></i> FAQs</a></li>
+        <li class="dropdown">
+            <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
+            <ul class="sub-menu">
+            <li><a href="#help"><i class="fas fa-question"></i> Help</a></li>
+            <li><a href="#feedback"><i class="fas fa-comment"></i> Feedback</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
+            </ul>
         </li>
-      </ul>
+        </ul>
+        <div class="auth-nav">
+        <a href="#login" class="user-icon-btn" title="Account"><i class="fas fa-user-circle"></i></a>
+        </div>
+        <div class="mobile-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+        </div>
     </nav>
-  </aside>
+    </div>
+</header>
 
-  <!-- Main Content -->
-  <main class="main-content" id="main-content" tabindex="-1">
-    <h1>Welcome to Ka ED's Store BBQ</h1>
-    <p>Your one-stop destination for the best grilled meats and BBQ delights.</p>
-  </main>
+<main>
+    <section id="home" class="section active">
+    <div class="container">
+        <h2>Welcome to Ka ED's Store</h2>
+        <p class="subtitle">Authentic Filipino BBQ since 2005</p>
+        
+
+
+    </div>
+    </section>
+
+    <!-- About Section -->
+    
+    <section id="about" class="section">
+    <div class="container">
+        <h2>About Us</h2>
+        <div class="about-content">
+        <div class="about-text">
+            <p>Founded in 2005 by Eduardo "Ka ED" Santos, our store has become a beloved destination for authentic Filipino barbecue. What began as a small roadside stall has grown into a thriving business thanks to our loyal customers and commitment to quality.</p>
+            <p>We use traditional family recipes passed down through generations, combined with the freshest local ingredients to create unforgettable dining experiences.</p>
+            <ul class="about-features">
+            <li><i class="fas fa-check"></i> 100% authentic Filipino recipes</li>
+            <li><i class="fas fa-check"></i> Locally sourced ingredients</li>
+            <li><i class="fas fa-check"></i> Family-owned and operated</li>
+            </ul>
+        </div>
+        
+        <div class="about-image">
+            <img src="/assets/ka eds.jpg" alt="Ka ED's Store">
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Menu Sections -->
+    <section id="featured" class="section menu-section">
+    <div class="container">
+        <h2>Featured Items</h2>
+        <div class="menu-grid">
+        <div class="menu-item">
+            <div class="item-image">
+            <img src="/assets/isaw.jpg" alt="Isaw">
+            </div>
+            <div class="item-info">
+            <h3>Isaw</h3>
+            <p class="price">₱120</p>
+            <p class="description">Marinated pork skewers grilled to perfection with our special sauce</p>
+            <button class="add-to-cart">Add to Order</button>
+            </div>
+        </div>
+        
+        <div class="menu-item">
+            <div class="item-image">
+            <img src="/assets/fishball.jpg" alt="Fishball">
+            </div>
+            <div class="item-info">
+            <h3>Fishball</h3>
+            <p class="price">₱150</p>
+            <p class="description">Juicy chicken marinated in calamansi, pepper, and annatto</p>
+            <button class="add-to-cart">Add to Order</button>
+            </div>
+        </div>
+        
+        <div class="menu-item">
+            <div class="item-image">
+            <img src="/assets/Kwek-kwek.jpg" alt="Kwek-Kwek">
+            </div>
+            <div class="item-info">
+            <h3>Kwek-Kwek</h3>
+            <p class="price">₱250</p>
+            <p class="description">Tender beef ribs with our signature barbecue glaze</p>
+            <button class="add-to-cart">Add to Order</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Best Sellers Section -->
+    <section id="bestsellers" class="section menu-section">
+    <div class="container">
+        <h2>Best Sellers</h2>
+        <div class="menu-grid">
+        <div class="menu-item">
+            <div class="item-image">
+            <img src="/assets/kikiam.jpg" alt="Kikiam">
+            </div>
+            <div class="item-info">
+            <h3>Kikiam</h3>
+            <p class="price">₱180</p>
+            <p class="description">Crispy pork belly with sweet and spicy glaze</p>
+            <button class="add-to-cart">Add to Order</button>
+            </div>
+        </div>
+        <div class="menu-item">
+            <div class="item-image">
+            <img src="/assets/isaw.jpg" alt="Isaw">
+            </div>
+            <div class="item-info">
+            <h3>Isaw</h3>
+            <p class="price">₱200</p>
+            <p class="description">Whole milkfish stuffed with tomatoes and onions</p>
+            <button class="add-to-cart">Add to Order</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+
+<!-- Available Items Section -->
+    <section id="available" class="section menu-section">
+    <div class="container">
+        <h2>Available Items</h2>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="item-image">
+              <img src="/assets/isaw.jpg" alt="Isaw">
+            </div>
+            <div class="item-info">
+              <h3>Isaw</h3>
+              <p class="price">₱120</p>
+              <p class="description">Marinated pork skewers grilled to perfection</p>
+              <button class="add-to-cart">Add to Order</button>
+            </div>
+          </div>
+          
+          <div class="menu-item out-of-stock">
+            <div class="item-image">
+              <img src="/assets/fishball.jpg" alt="Fishball">
+              <div class="stock-label">Out of Stock</div>
+            </div>
+            <div class="item-info">
+              <h3>Fishball</h3>
+              <p class="price">₱150</p>
+              <p class="description">Juicy fishballs with special sauce</p>
+              <button class="add-to-cart" disabled>Not Available</button>
+            </div>
+          </div>
+          
+          <div class="menu-item coming-soon">
+            <div class="item-image">
+              <img src="/assets/Kwek-kwek.jpg" alt="Kwek-Kwek">
+              <div class="stock-label">Coming Soon</div>
+            </div>
+            <div class="item-info">
+              <h3>Kwek-Kwek</h3>
+              <p class="price">₱250</p>
+              <p class="description">Deep-fried quail eggs with orange batter</p>
+              <button class="add-to-cart" disabled>Coming Soon</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Reservation Section -->
+    <section id="reservation" class="section">
+    <div class="container">
+        <h2>Make a Reservation</h2>
+        <form class="reservation-form">
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" required>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" id="date" required>
+            </div>
+            <div class="form-group">
+            <label for="time">Time</label>
+            <input type="time" id="time" required>
+            </div>
+            <div class="form-group">
+            <label for="guests">Number of Guests</label>
+            <input type="number" id="guests" min="1" required>
+            </div>
+        </div>
+        <button type="submit" class="btn primary-btn">Book Reservation</button>
+        </form>
+    </div>
+    </section>
+
+    <!-- Order Section -->
+    <section id="order" class="section">
+    <div class="container">
+        <h2>Order Online</h2>
+        <div class="order-options">
+        <div class="order-option">
+            <div class="option-icon">
+            <i class="fas fa-store"></i>
+            </div>
+            <h3>Pickup</h3>
+            <p>Order online and pick up at our store</p>
+            <a href="#pickup" class="btn primary-btn">Order for Pickup</a>
+        </div>
+        <div class="order-option">
+            <div class="option-icon">
+            <i class="fas fa-motorcycle"></i>
+            </div>
+            <h3>Delivery</h3>
+            <p>Get your food delivered to your door</p>
+            <a href="#delivery" class="btn primary-btn">Order for Delivery</a>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section id="mission" class="section">
+    <div class="container">
+        <h2>Our Mission</h2>
+        <div class="mission-content">
+        <div class="mission-icon">
+            <i class="fas fa-bullseye"></i>
+        </div>
+        <div class="mission-text">
+            <p>To bring people together through quality barbecue experiences while promoting sustainable practices and honoring our Filipino culinary roots.</p>
+            <p>We are committed to:</p>
+            <ul>
+            <li>Using only the freshest, locally-sourced ingredients</li>
+            <li>Preserving traditional Filipino cooking methods</li>
+            <li>Providing exceptional service to every customer</li>
+            <li>Supporting our local community</li>
+            </ul>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="section">
+    <div class="container">
+        <h2>Our Vision</h2>
+        <div class="vision-content">
+        <div class="vision-text">
+            <p>To become a nationwide BBQ brand known for authentic flavors, outstanding service, and community impact.</p>
+            <p>We envision a future where:</p>
+            <ul>
+            <li>Filipino barbecue is celebrated worldwide</li>
+            <li>Our store becomes a destination for food lovers</li>
+            <li>We can share our culinary heritage with more people</li>
+            <li>We create opportunities for our employees and community</li>
+            </ul>
+        </div>
+        <div class="vision-icon">
+            <i class="fas fa-eye"></i>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- FAQs Section -->
+    <section id="faqs" class="section">
+    <div class="container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-container">
+        <div class="faq-item">
+            <div class="faq-question">
+            <h3>Do I need to create an account to view the menu?</h3>
+            <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+            <p>No, you can freely browse our menu without logging in. However, you'll need an account to place orders or make reservations.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+            <h3>What are your operating hours?</h3>
+            <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+            <p>We're open daily from 10:00 AM to 10:00 PM, including holidays.</p>
+            </div>
+        </div>
+        <!-- More FAQ items -->
+        </div>
+    </div>
+    </section>
+
+    <!-- Settings Sections -->
+    <section id="help" class="section">
+    <div class="container">
+
+        <!-- Help content -->
+    <section id="help" class="section">
+        <div class="container">
+            <h2>Help Center</h2>
+            <div class="help-content">
+                <div class="help-categories">
+                    <div class="help-category active" data-category="ordering">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>Ordering Help</h3>
+                    </div>
+                    <div class="help-category" data-category="delivery">
+                        <i class="fas fa-motorcycle"></i>
+                        <h3>Delivery Info</h3>
+                    </div>
+                    <div class="help-category" data-category="account">
+                        <i class="fas fa-user-circle"></i>
+                        <h3>Account Help</h3>
+                    </div>
+                    <div class="help-category" data-category="payments">
+                        <i class="fas fa-credit-card"></i>
+                        <h3>Payments</h3>
+                    </div>
+                    <div class="help-category" data-category="other">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>Other Questions</h3>
+                    </div>
+                </div>
+                
+                <div class="help-articles">
+                    <div class="help-article-category active" id="ordering-articles">
+                        <h3><i class="fas fa-shopping-cart"></i> Ordering Help</h3>
+                        <div class="article-list">
+                            <div class="article-item">
+                                <h4>How do I place an order?</h4>
+                                <div class="article-content">
+                                    <p>You can place an order through our website or mobile app by selecting your items, choosing pickup or delivery, and completing the checkout process.</p>
+                                </div>
+                            </div>
+                            <div class="article-item">
+                                <h4>Can I modify my order after placing it?</h4>
+                                <div class="article-content">
+                                    <p>Orders can be modified within 5 minutes of placement. Please call our store directly at (02) 8123 4567 for immediate assistance.</p>
+                                </div>
+                            </div>
+                            <div class="article-item">
+                                <h4>What are your operating hours?</h4>
+                                <div class="article-content">
+                                    <p>We're open daily from 10:00 AM to 10:00 PM, including holidays. Delivery hours are from 11:00 AM to 9:30 PM.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="help-article-category" id="delivery-articles">
+                        <h3><i class="fas fa-motorcycle"></i> Delivery Information</h3>
+                        <div class="article-list">
+                            <div class="article-item">
+                                <h4>What areas do you deliver to?</h4>
+                                <div class="article-content">
+                                    <p>We currently deliver within a 5km radius of our store location. Enter your address during checkout to confirm if we deliver to your area.</p>
+                                </div>
+                            </div>
+                            <div class="article-item">
+                                <h4>How long does delivery take?</h4>
+                                <div class="article-content">
+                                    <p>Average delivery time is 30-45 minutes depending on your location and current order volume.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="help-article-category" id="account-articles">
+                        <h3><i class="fas fa-user-circle"></i> Account Help</h3>
+                        <div class="article-list">
+                            <div class="article-item">
+                                <h4>How do I reset my password?</h4>
+                                <div class="article-content">
+                                    <p>Click on "Forgot Password" on the login page and follow the instructions sent to your registered email address.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="help-article-category" id="payments-articles">
+                        <h3><i class="fas fa-credit-card"></i> Payment Information</h3>
+                        <div class="article-list">
+                            <div class="article-item">
+                                <h4>What payment methods do you accept?</h4>
+                                <div class="article-content">
+                                    <p>We accept cash on delivery, GCash, Maya, and major credit/debit cards.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="help-article-category" id="other-articles">
+                        <h3><i class="fas fa-question-circle"></i> Other Questions</h3>
+                        <div class="article-list">
+                            <div class="article-item">
+                                <h4>How do I provide feedback?</h4>
+                                <div class="article-content">
+                                    <p>You can leave feedback through our website's Feedback section or email us directly at feedback@kaedsstore.com.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-support">
+                <h3>Still need help?</h3>
+                <p>Contact our customer support team:</p>
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <i class="fas fa-phone"></i>
+                        <p>(02) 8123 4567</p>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <p>support@kaedsstore.com</p>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fab fa-facebook-messenger"></i>
+                        <p>@KaEDsStore</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+    </section>
+
+    <!-- Feedback Section -->
+<section id="feedback" class="section">
+  <div class="container">
+    <h2>Share Your Feedback</h2>
+
+    <div class="feedback-container">
+      <div class="feedback-form">
+        <form>
+          <div class="form-group">
+            <label for="feedback-name">Your Name</label>
+            <input type="text" id="feedback-name" placeholder="Juan Dela Cruz">
+          </div>
+          <div class="form-group">
+            <label for="feedback-email">Email Address</label>
+            <input type="email" id="feedback-email" placeholder="juan@example.com">
+          </div>
+          <div class="form-group">
+            <label for="feedback-type">Feedback Type</label>
+            <select id="feedback-type">
+              <option value="compliment">Compliment</option>
+              <option value="suggestion">Suggestion</option>
+              <option value="concern">Concern</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="feedback-message">Your Feedback</label>
+            <textarea id="feedback-message" rows="5" placeholder="We'd love to hear about your experience..."></textarea>
+          </div>
+          <button type="submit" class="btn primary-btn">
+            <i class="fas fa-paper-plane"></i> Submit Feedback
+          </button>
+        </form>
+      </div>
+      <div class="feedback-image">
+        <img src="/assets/feedback.jpg" alt="Happy customers at Ka ED's Store">
+        <div class="feedback-quote">
+          <p>"Your feedback helps us serve you better!"</p>
+          <p>- Ka ED</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Us Section -->
+<section id="contact" class="section">
+  <div class="container">
+    <h2>Contact Us</h2>
+
+    <div class="contact-container">
+      <div class="contact-info">
+        <div class="contact-card">
+          <i class="fas fa-map-marker-alt"></i>
+          <h3>Visit Us</h3>
+          <p>123 BBQ Street<br>Manila, Philippines</p>
+        </div>
+        <div class="contact-card">
+          <i class="fas fa-phone-alt"></i>
+          <h3>Call Us</h3>
+          <p>(02) 8123 4567<br>0917 123 4567</p>
+        </div>
+        <div class="contact-card">
+          <i class="fas fa-envelope"></i>
+          <h3>Email Us</h3>
+          <p>info@kaedsstore.com<br>support@kaedsstore.com</p>
+        </div>
+        <div class="contact-card">
+          <i class="fas fa-clock"></i>
+          <h3>Opening Hours</h3>
+          <p>Monday-Sunday<br>10:00 AM - 10:00 PM</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- In your HTML file, replace the login/signup sections with this: -->
+<div id="account-modal" class="account-modal">
+  <div class="account-modal-content">
+    <div class="account-tabs">
+      <button class="tab-btn active" data-tab="login">Login</button>
+      <button class="tab-btn" data-tab="signup">Sign Up</button>
+    </div>
+    
+    <div class="tab-content active" id="login-tab">
+      <form class="auth-form">
+        <div class="form-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Password" required>
+        </div>
+        <button type="submit" class="btn primary-btn">
+          <i class="fas fa-sign-in-alt"></i> Login
+        </button>
+        <p class="auth-footer">Ka ED's Store - Authentic Filipino BBQ since 2005</p>
+      </form>
+    </div>
+    
+    <div class="tab-content" id="signup-tab">
+      <form class="auth-form">
+        <div class="form-group">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Full Name" required>
+        </div>
+        <div class="form-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Password" required>
+        </div>
+        <div class="form-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Confirm Password" required>
+        </div>
+        <button type="submit" class="btn primary-btn">
+          <i class="fas fa-user-plus"></i> Create Account
+        </button>
+        <p class="auth-footer">Ka ED's Store - Authentic Filipino BBQ since 2005</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+    <!-- Footer -->
+    <footer>
+    <div class="container">
+        <div class="footer-content">
+        <div class="footer-section">
+            <h3>Ka ED's Store</h3>
+            <p>Authentic Filipino BBQ since 2005</p>
+            <div class="social-links">
+            <a href="#" title="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span class="sr-only">Facebook</span></a>
+            <a href="#" title="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i><span class="sr-only">Instagram</span></a>
+            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 123 BBQ Street, Manila</p>
+            <p><i class="fas fa-phone"></i> (02) 8123 4567</p>
+            <p><i class="fas fa-envelope"></i> info@kaedsstore.com</p>
+        </div>
+        </div>
+        <div class="footer-bottom">
+        <p>&copy; 2023 Ka ED's Store. All rights reserved.</p>
+        
+        </div>
+    </div>
+    </footer>
+</main>
+
+<script src="/js/script.js"></script>
 </body>
 </html>
