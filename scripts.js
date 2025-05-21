@@ -1,51 +1,185 @@
-// DOM Elements
-const hamburger = document.getElementById("hamburger");
-const sidebar = document.getElementById("sidebar");
-const mainContent = document.getElementById("main-content");
-const menuToggle = document.getElementById("menu-toggle");
-const menuDropdown = document.getElementById("menu-dropdown");
-
-// Hamburger toggle
-hamburger.addEventListener("click", () => {
-  const expanded = hamburger.getAttribute("aria-expanded") === "true" || false;
-  hamburger.setAttribute("aria-expanded", !expanded);
-  hamburger.classList.toggle("active");
-  sidebar.classList.toggle("active");
-  mainContent.classList.toggle("sidebar-active");
-  sidebar.setAttribute("aria-hidden", expanded);
+document.addEventListener('DOMContentLoaded', function() {
+  // Mobile menu toggle
+  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+  const nav = document.querySelector('nav');
+  const dropdowns = document.querySelectorAll('.dropdown');
+  
+  mobileMenuBtn.addEventListener('click', function() {
+      nav.classList.toggle('active');
+      this.classList.toggle('active');
+  });
+  
+  // Dropdown menu toggle for mobile
+  dropdowns.forEach(dropdown => {
+      const link = dropdown.querySelector('a');
+      
+      link.addEventListener('click', function(e) {
+          if (window.innerWidth <= 992) {
+              e.preventDefault();
+              dropdown.classList.toggle('active');
+          }
+      });
+  });
+  
+  // Navigation system - show only the active section
+  const sections = document.querySelectorAll('.section');
+  const navLinks = document.querySelectorAll('.main-nav a');
+  
+  // Function to show a specific section and hide others
+  function showSection(sectionId) {
+    sections.forEach(section => {
+      section.classList.remove('active');
+      if (section.id === sectionId) {
+        section.classList.add('active');
+      }
+    });
+    
+    // Update active nav link
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${sectionId}`) {
+        link.classList.add('active');
+      }
+    });
+    
+    // Scroll to the section
+    const targetElement = document.querySelector(`#${sectionId}`);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  }
+  
+  // Set home as default active section
+  showSection('home');
+  
+  // Handle nav link clicks
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      showSection(targetId);
+      
+      // Close mobile menu if open
+      if (nav.classList.contains('active')) {
+        nav.classList.remove('active');
+        mobileMenuBtn.classList.remove('active');
+      }
+    });
+  });
+  
+  // Handle direct URL hash navigation
+  window.addEventListener('load', function() {
+    if (window.location.hash) {
+      const sectionId = window.location.hash.substring(1);
+      showSection(sectionId);
+    }
+  });
+  
+  // Scroll animation for sections
+  const animateOnScroll = function() {
+    const sections = document.querySelectorAll('.section');
+    
+    sections.forEach(section => {
+      const sectionTop = section.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+      
+      if (sectionTop < windowHeight * 0.75) {
+        section.style.opacity = '1';
+        section.style.transform = 'translateY(0)';
+      }
+    });
+  };
+  
+  // Initialize section animations
+  window.addEventListener('load', animateOnScroll);
+  window.addEventListener('scroll', animateOnScroll);
 });
 
-// Close sidebar on sidebar link/button click (better UX on mobile)
-sidebar.querySelectorAll("a, button").forEach((el) => {
-  el.addEventListener("click", () => {
-    sidebar.classList.remove("active");
-    mainContent.classList.remove("sidebar-active");
-    hamburger.setAttribute("aria-expanded", false);
-    hamburger.classList.remove("active");
-    sidebar.setAttribute("aria-hidden", true);
+// Help Center functionality
+document.querySelectorAll('.help-category').forEach(category => {
+    category.addEventListener('click', function() {
+        // Remove active class from all categories
+        document.querySelectorAll('.help-category').forEach(c => {
+            c.classList.remove('active');
+        });
+        
+        // Add active class to clicked category
+        this.classList.add('active');
+        
+        // Hide all article categories
+        document.querySelectorAll('.help-article-category').forEach(articleCat => {
+            articleCat.classList.remove('active');
+        });
+        
+        // Show the selected article category
+        const categoryId = this.getAttribute('data-category');
+        document.getElementById(`${categoryId}-articles`).classList.add('active');
+    });
+});
+
+// Article item toggle
+document.querySelectorAll('.article-item h4').forEach(articleHeader => {
+    articleHeader.addEventListener('click', function() {
+        const articleItem = this.parentElement;
+        articleItem.classList.toggle('active');
+    });
+});
+
+
+// Account Modal Functionality
+const accountModal = document.getElementById('account-modal');
+const userIconBtn = document.querySelector('.user-icon-btn');
+const tabBtns = document.querySelectorAll('.tab-btn');
+
+// Open modal when user icon clicked
+userIconBtn.addEventListener('click', () => {
+  accountModal.style.display = 'block';
+  document.body.style.overflow = 'hidden';
+});
+
+// Close modal when clicking outside
+accountModal.addEventListener('click', (e) => {
+  if (e.target === accountModal) {
+    accountModal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+});
+
+// Tab switching
+tabBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Update active tab button
+    tabBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    
+    // Update active tab content
+    const tabId = btn.getAttribute('data-tab');
+    document.querySelectorAll('.tab-content').forEach(content => {
+      content.classList.remove('active');
+    });
+    document.getElementById(`${tabId}-tab`).classList.add('active');
   });
 });
 
-// Dropdown toggle
-menuToggle.addEventListener("click", () => {
-  const expanded = menuToggle.getAttribute("aria-expanded") === "true" || false;
-  menuToggle.setAttribute("aria-expanded", !expanded);
-  menuDropdown.classList.toggle("open");
-});
-
-// Close dropdown if clicking outside
-document.addEventListener("click", (e) => {
-  if (!menuDropdown.contains(e.target) && menuDropdown.classList.contains("open")) {
-    menuDropdown.classList.remove("open");
-    menuToggle.setAttribute("aria-expanded", false);
-  }
-});
-
-// Keyboard accessibility for dropdown (close on Escape)
-menuToggle.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" || e.key === "Esc") {
-    menuDropdown.classList.remove("open");
-    menuToggle.setAttribute("aria-expanded", false);
-    menuToggle.focus();
-  }
+// Feedback Form Submission
+document.querySelector('#feedback form')?.addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  // Get form values
+  const name = document.getElementById('feedback-name').value;
+  const email = document.getElementById('feedback-email').value;
+  const type = document.getElementById('feedback-type').value;
+  const message = document.getElementById('feedback-message').value;
+  
+  // Here you would typically send this data to your server
+  console.log('Feedback submitted:', { name, email, type, message });
+  
+  // Show success message
+  alert('Thank you for your feedback! Ka ED appreciates your input.');
+  
+  // Reset form
+  this.reset();
 });
