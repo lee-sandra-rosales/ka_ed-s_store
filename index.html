@@ -550,54 +550,76 @@
   </div>
 </section>
 
-    <!-- In your HTML file, replace the login/signup sections with this: -->
-<div id="account-modal" class="account-modal">
+ <div id="account-modal" class="account-modal">
   <div class="account-modal-content">
     <div class="account-tabs">
       <button class="tab-btn active" data-tab="login">Login</button>
       <button class="tab-btn" data-tab="signup">Sign Up</button>
     </div>
     
+    <!-- Login Tab -->
     <div class="tab-content active" id="login-tab">
+      <div class="auth-header">
+        <h2>Welcome back</h2>
+        <p>You've been missed!</p>
+      </div>
+      
       <form class="auth-form">
         <div class="form-group">
-          <i class="fas fa-envelope"></i>
-          <input type="email" placeholder="Email" required>
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" placeholder="Enter your email" required>
         </div>
         <div class="form-group">
-          <i class="fas fa-lock"></i>
-          <input type="password" placeholder="Password" required>
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" placeholder="Enter your password" required>
         </div>
         <button type="submit" class="btn primary-btn">
-          <i class="fas fa-sign-in-alt"></i> Login
+          Login
         </button>
-        <p class="auth-footer">Ka ED's Store - Authentic Filipino BBQ since 2005</p>
       </form>
+      
+      <div class="auth-divider">
+        <span>or continue with</span>
+      </div>
+      
+      <div class="social-login">
+        <button class="social-btn google-btn">
+          <i class="fab fa-google"></i> Google
+        </button>
+        <button class="social-btn facebook-btn">
+          <i class="fab fa-facebook-f"></i> Facebook
+        </button>
+      </div>
     </div>
     
+    <!-- Signup Tab -->
     <div class="tab-content" id="signup-tab">
+      <div class="auth-header">
+        <h2>Create Account</h2>
+        <p>Start your journey with us</p>
+      </div>
+      
       <form class="auth-form">
         <div class="form-group">
-          <i class="fas fa-user"></i>
-          <input type="text" placeholder="Full Name" required>
+          <label for="signup-email">Email</label>
+          <input type="email" id="signup-email" placeholder="Enter your email" required>
         </div>
         <div class="form-group">
-          <i class="fas fa-envelope"></i>
-          <input type="email" placeholder="Email" required>
+          <label for="signup-password">Password</label>
+          <input type="password" id="signup-password" placeholder="Create a password" required>
         </div>
         <div class="form-group">
-          <i class="fas fa-lock"></i>
-          <input type="password" placeholder="Password" required>
-        </div>
-        <div class="form-group">
-          <i class="fas fa-lock"></i>
-          <input type="password" placeholder="Confirm Password" required>
+          <label for="signup-confirm-password">Confirm Password</label>
+          <input type="password" id="signup-confirm-password" placeholder="Confirm your password" required>
         </div>
         <button type="submit" class="btn primary-btn">
-          <i class="fas fa-user-plus"></i> Create Account
+          Sign Up
         </button>
-        <p class="auth-footer">Ka ED's Store - Authentic Filipino BBQ since 2005</p>
       </form>
+      
+      <div class="auth-footer">
+        <p>Already have an account? <a href="#" class="switch-tab" data-tab="login">Login</a></p>
+      </div>
     </div>
   </div>
 </div>
@@ -632,5 +654,18 @@
 </main>
 
 <script src="/js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+
+<script>
+  async function loadProducts() {
+    const { data, error } = await supabase.from('products').select('*');
+    if (error) console.error(error);
+    else console.log(data); // Or render to page
+  }
+
+  loadProducts();
+</script>
+
 </body>
 </html>
