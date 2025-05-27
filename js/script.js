@@ -183,6 +183,39 @@ document.querySelector('#feedback form')?.addEventListener('submit', function(e)
   // Reset form
   this.reset();
 
+  // Update your existing tab switching code with this
+tabBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Update active tab button
+    tabBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    
+    // Update active tab content
+    const tabId = btn.getAttribute('data-tab');
+    document.querySelectorAll('.tab-content').forEach(content => {
+      content.classList.remove('active');
+    });
+    document.getElementById(`${tabId}-tab`).classList.add('active');
+  });
+});
+
+// Add switch tab functionality for footer link
+document.querySelectorAll('.switch-tab').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const tabId = link.getAttribute('data-tab');
+    
+    // Update active tab button
+    tabBtns.forEach(b => b.classList.remove('active'));
+    document.querySelector(`.tab-btn[data-tab="${tabId}"]`).classList.add('active');
+    
+    // Update active tab content
+    document.querySelectorAll('.tab-content').forEach(content => {
+      content.classList.remove('active');
+    });
+    document.getElementById(`${tabId}-tab`).classList.add('active');
+  });
+});
 
 const supabaseUrl = 'https://hsjzfhzvqcxyzpvjhywo.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhzanpmaHp2cWN4eXpwdmpoeXdvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc2NTI3MzksImV4cCI6MjA2MzIyODczOX0.uGdpzDXmsacdqi6pmH-aTzN1e2U4jK0ang3ySCJO1yY';
